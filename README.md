@@ -599,10 +599,7 @@ npm run test:coverage
 
 | 👤 Nome | :octocat: GitHub | 💼 LinkedIn | 📤 Gmail |
 |---------|-----------------|-------------|-----------|
-| Vinícius Zegarra Palhares | <div align="center"><a href="https://github.com/viniciuszegarra"><img src="https://joaopauloaramuni.github.io/image/github6.png" width="50px" height="50px"></a></div> | <div align="center"><a href="https://www.linkedin.com/in/viniciuszegarra"><img src="https://joaopauloaramuni.github.io/image/linkedin2.png" width="50px" height="50px"></a></div> | <div align="center"><a href="mailto:viniciuszegarra@gmail.com"><img src="https://joaopauloaramuni.github.io/image/gmail3.png" width="50px" height="50px"></a></div> |
-
-> [!TIP]
-> 💡 **Dica:** Substitua a foto de perfil padrão pela sua foto profissional. Preferencialmente uma imagem de rosto, com boa qualidade e sem filtros excessivos.
+| Vinícius Zegarra Palhares | <div align="center"><a href="https://github.com/ZegarraV"><img src="https://joaopauloaramuni.github.io/image/github6.png" width="50px" height="50px"></a></div> | <div align="center"><a href="[https://www.linkedin.com/in/viniciuszegarra](https://www.linkedin.com/in/vinicius-zegarra-palhares/)"><img src="https://joaopauloaramuni.github.io/image/linkedin2.png" width="50px" height="50px"></a></div> | <div align="center"><a href="mailto:vinizegarra@gmail.com"><img src="https://joaopauloaramuni.github.io/image/gmail3.png" width="50px" height="50px"></a></div> |
 
 ---
 
