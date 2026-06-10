@@ -173,7 +173,7 @@ O AraBet adota uma arquitetura em **três camadas** bem definidas, modelada com 
 | :---: | :---: |
 | **Visão Macro do Sistema** | **Camadas e Serviços Internos** |
 | <img src="/Diagramas/Diagrama de Comunicação.png" alt="Comunicação AraBet" width="380px"> | <img src="/Diagramas/Diagrama de componentes.png" alt="Diagrama de Componentes AraBet" width="380px"> |
-| **Diagrama de Implantação (AWS)** | **Diagrama de Classes** |
+| **Diagrama de Implantação ** | **Diagrama de Classes** |
 | <img src="/Diagramas/diagrama de implantacao.png" alt="Diagrama de Implantação AWS" width="380px"> | <img src="/Diagramas/Diagrama de classes.png" alt="Diagrama de Classes AraBet" width="380px"> |
 | **Diagrama Entidade-Relacionamento** | **Diagrama de Casos de Uso** |
 | <img src="Diagramas/DER.png" alt="DER AraBet" width="380px"> | <img src="/Diagramas/Diagrama de casos de uso.png" alt="Casos de Uso AraBet" width="380px"> |
