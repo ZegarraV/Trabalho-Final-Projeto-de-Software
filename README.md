@@ -172,11 +172,11 @@ O AraBet adota uma arquitetura em **três camadas** bem definidas, modelada com 
 | Diagrama de Contexto (C4) | Diagrama de Componentes |
 | :---: | :---: |
 | **Visão Macro do Sistema** | **Camadas e Serviços Internos** |
-| <img src="./docs/diagrams/C4_Contexto.png" alt="C4 Contexto AraBet" width="380px"> | <img src="./docs/diagrams/Componentes.png" alt="Diagrama de Componentes AraBet" width="380px"> |
+| <img src="./docs/diagrams/C4_Contexto.png" alt="C4 Contexto AraBet" width="380px"> | <img src="/Diagrmas/Diagrama de componentes.png" alt="Diagrama de Componentes AraBet" width="380px"> |
 | **Diagrama de Implantação (AWS)** | **Diagrama de Classes** |
-| <img src="./docs/diagrams/Implantacao.png" alt="Diagrama de Implantação AWS" width="380px"> | <img src="./docs/diagrams/Classes.png" alt="Diagrama de Classes AraBet" width="380px"> |
+| <img src="/Diagramas/Diagrama de implantacao.png" alt="Diagrama de Implantação AWS" width="380px"> | <img src="/Diagramas/Diagrama de classes.png" alt="Diagrama de Classes AraBet" width="380px"> |
 | **Diagrama Entidade-Relacionamento** | **Diagrama de Casos de Uso** |
-| <img src="./docs/diagrams/DER_AraBet.png" alt="DER AraBet" width="380px"> | <img src="./docs/diagrams/UC_AraBet.png" alt="Casos de Uso AraBet" width="380px"> |
+| <img src="Diagramas/DER.png" alt="DER AraBet" width="380px"> | <img src="/Diagramas/Diagrama de casos de usos.png" alt="Casos de Uso AraBet" width="380px"> |
 
 > 📐 Todos os diagramas foram criados com **PlantUML**. O código-fonte completo está em [`/docs/AraBet_Diagramas.puml`](./docs/AraBet_Diagramas.puml).
 
