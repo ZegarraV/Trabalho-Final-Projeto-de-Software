@@ -1,0 +1,40 @@
+@startuml
+actor Apostador
+participant "ApostaController" as ctrl
+participant "ApostaService" as serv
+participant "CarteiraService" as cart
+participant "EventoService" as evt
+participant "ApostaRepository" as repo
+
+Apostador -> ctrl: POST /apostas {selecaoId, valor}
+activate ctrl
+ctrl -> serv: criarAposta(usuarioId, selecaoId, valor)
+activate serv
+
+serv -> evt: obterOddAtual(selecaoId)
+activate evt
+evt --> serv: odd = 2.75
+deactivate evt
+
+serv -> cart: verificarSaldo(usuarioId, valor)
+activate cart
+cart --> serv: saldoSuficiente = true
+deactivate cart
+
+serv -> serv: aposta = new Aposta(valor, odd)
+serv -> cart: debitar(usuarioId, valor)
+activate cart
+cart --> serv: novoSaldo
+deactivate cart
+
+serv -> repo: salvar(aposta)
+activate repo
+repo --> serv: apostaPersistida
+deactivate repo
+
+serv --> ctrl: {apostaId, status: PENDENTE, ganhosPotenciais}
+deactivate serv
+
+ctrl --> Apostador: 201 Created
+deactivate ctrl
+@enduml

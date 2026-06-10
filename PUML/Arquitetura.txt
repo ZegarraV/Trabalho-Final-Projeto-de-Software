@@ -1,0 +1,21 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+Person(apostador, "Apostador", "Realiza apostas, deposita e saca fundos.")
+Person(operador, "Operador", "Gerencia os eventos esportivos e atualiza odds.")
+Person(admin, "Administrador", "Gerencia usuários, KYC e relatórios financeiros.")
+
+System(arabet, "AraBet", "Plataforma online de apostas esportivas.")
+
+System_Ext(paygw, "PayGateway", "Processa transações financeiras (Pix, Cartões).")
+System_Ext(oddsapi, "OddsAPI", "Provedor de resultados esportivos e odds em tempo real.")
+System_Ext(email, "Serviço de Email", "Envio de notificações transacionais (SendGrid).")
+
+Rel(apostador, arabet, "Aposta, deposita, saca e acompanha via")
+Rel(operador, arabet, "Gerencia eventos e mercados via")
+Rel(admin, arabet, "Administra a plataforma via")
+
+Rel(arabet, paygw, "Processa pagamentos via")
+Rel(arabet, oddsapi, "Consome dados esportivos de")
+Rel(arabet, email, "Envia e-mails via")
+@enduml

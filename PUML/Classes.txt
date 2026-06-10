@@ -1,0 +1,70 @@
+@startuml
+class Usuario {
+  - id: UUID
+  - nome: String
+  - cpf: String
+  - email: String
+  - senhaHash: String
+  - kycVerificado: Boolean
+  + registrar(): void
+  + autenticar(email, senha): Token
+}
+
+class Carteira {
+  - id: UUID
+  - saldo: Decimal
+  - moeda: String
+  + depositar(valor, metodo): Transacao
+  + sacar(valor, metodo): Transacao
+  + obterSaldo(): Decimal
+}
+
+class Transacao {
+  - id: UUID
+  - tipo: TipoTransacao
+  - valor: Decimal
+  - referenciaExterna: String
+  - criadoEm: DateTime
+}
+
+class Evento {
+  - id: UUID
+  - nome: String
+  - esporte: String
+  - status: StatusEvento
+  - dataHoraInicio: DateTime
+  - placarCasa: Integer
+  - placarVisitante: Integer
+}
+
+class Mercado {
+  - id: UUID
+  - nome: String
+  - status: StatusMercado
+}
+
+class Selecao {
+  - id: UUID
+  - nome: String
+  - odd: Decimal
+  - resultado: ResultadoSelecao
+}
+
+class Aposta {
+  - id: UUID
+  - valor: Decimal
+  - oddNoMomento: Decimal
+  - ganhosPotenciais: Decimal
+  - status: StatusAposta
+  + calcularGanhos(): Decimal
+  + liquidar(): void
+  + solicitarCashOut(): Decimal
+}
+
+Usuario "1" -- "1" Carteira : possui >
+Carteira "1" -- "*" Transacao : gera >
+Usuario "1" -- "*" Aposta : realiza >
+Evento "1" -- "*" Mercado : compoe >
+Mercado "1" -- "*" Selecao : contem >
+Aposta "*" -- "1" Selecao : referencia >
+@enduml

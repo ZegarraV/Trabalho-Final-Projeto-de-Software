@@ -1,0 +1,73 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Apostador" as apostador
+actor "Operador" as operador
+actor "Administrador" as admin
+
+actor "PayGateway" as paygateway <<Sistema Externo>>
+actor "OddsAPI" as oddsapi <<Sistema Externo>>
+actor "Serviço de Email" as email <<Sistema Externo>>
+
+rectangle "AraBet - Plataforma de Apostas" {
+  
+  package "Acesso e Conta" {
+    usecase "UC-01: Registrar Conta" as uc01
+    usecase "UC-02: Autenticar (Login)" as uc02
+    usecase "UC-14: Verificar KYC (Identidade)" as uc14
+  }
+
+  package "Financeiro" {
+    usecase "UC-03: Depositar Saldo" as uc03
+    usecase "UC-04: Sacar Saldo" as uc04
+    usecase "UC-12: Gerar Relatórios Financeiros" as uc12
+  }
+
+  package "Apostas e Eventos" {
+    usecase "UC-05: Visualizar Eventos e Odds" as uc05
+    usecase "UC-06: Realizar Aposta" as uc06
+    usecase "UC-07: Acompanhar Aposta (Ao Vivo)" as uc07
+    usecase "UC-08: Cancelar Aposta" as uc08
+    usecase "UC-09: Visualizar Histórico" as uc09
+  }
+
+  package "Administração Core" {
+    usecase "UC-10: Gerenciar Eventos e Mercados" as uc10
+    usecase "UC-11: Gerenciar Usuários" as uc11
+    usecase "UC-13: Atualizar Odds em Tempo Real" as uc13
+  }
+}
+
+' Relacionamentos Apostador
+apostador --> uc01
+apostador --> uc02
+apostador --> uc03
+apostador --> uc04
+apostador --> uc05
+apostador --> uc06
+apostador --> uc07
+apostador --> uc08
+apostador --> uc09
+
+' Relacionamentos Operador
+operador --> uc02
+operador --> uc10
+operador --> uc11
+operador --> uc13
+
+' Relacionamentos Administrador
+admin --> uc02
+admin --> uc10
+admin --> uc11
+admin --> uc12
+admin --> uc14
+
+' Relacionamentos Sistemas Externos
+uc03 --> paygateway
+uc04 --> paygateway
+uc13 <-- oddsapi
+uc01 --> email
+uc04 --> email
+
+@enduml

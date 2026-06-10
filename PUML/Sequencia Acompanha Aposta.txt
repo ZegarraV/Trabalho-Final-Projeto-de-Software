@@ -1,0 +1,24 @@
+@startuml
+actor Apostador
+participant "Sistema AraBet" as sis
+
+Apostador -> sis: acompanharEventoAoVivo(eventoId)
+activate sis
+sis --> Apostador: Stream de dados (placar, odds em tempo real)
+deactivate sis
+
+opt Apostador decide encerrar aposta
+    Apostador -> sis: solicitarCashOut(apostaId)
+    activate sis
+    sis -> sis: calcularValorSaqueAntecipado()
+    sis --> Apostador: exibir Valor de Cash Out disponivel
+    deactivate sis
+
+    Apostador -> sis: confirmarCashOut()
+    activate sis
+    sis -> sis: encerrarAposta(status=CASHOUT)
+    sis -> sis: creditarCarteira(valorCashOut)
+    sis --> Apostador: Cash Out Concluído
+    deactivate sis
+end
+@enduml

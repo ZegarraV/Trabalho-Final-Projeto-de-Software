@@ -1,0 +1,36 @@
+@startuml
+package "Frontend (SPA - React)" {
+  [Módulo de Perfil e Histórico]
+  [Módulo de Apostas]
+  [Módulo de Eventos AoVivo]
+  [Módulo de Pagamentos]
+}
+
+package "Backend (Node.js - API REST)" {
+  [Auth Service]
+  [Bet Service]
+  [Event Service]
+  [Wallet Service]
+  [Notification Service]
+}
+
+database "PostgreSQL" {
+  [Dados Relacionais Principais]
+}
+
+database "Redis" {
+  [Cache / Sessões / Odds AoVivo]
+}
+
+queue "Message Broker (RabbitMQ)" {
+  [Fila de Processamento Assíncrono]
+}
+
+[Módulo de Apostas] --> [Bet Service] : HTTP/JSON
+[Módulo de Pagamentos] --> [Wallet Service] : HTTP/JSON
+[Módulo de Eventos AoVivo] --> [Event Service] : WebSocket
+
+[Bet Service] --> [Dados Relacionais Principais] : Prisma ORM
+[Event Service] --> [Cache / Sessões / Odds AoVivo] : Leitura Rápida
+[Wallet Service] --> [Fila de Processamento Assíncrono] : Enfileira Transações
+@enduml

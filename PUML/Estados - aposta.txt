@@ -1,0 +1,13 @@
+@startuml
+[*] --> PENDENTE : Aposta realizada (saldo debitado)
+
+PENDENTE --> GANHA : Evento encerrado [seleção correta]
+PENDENTE --> PERDIDA : Evento encerrado [seleção incorreta]
+PENDENTE --> CASHOUT : Apostador solicita cash out [ao vivo]
+PENDENTE --> CANCELADA : Evento cancelado (dentro do prazo)
+
+GANHA --> [*] : Saldo creditado (valor * odd)
+PERDIDA --> [*] : Saldo retido pela casa
+CASHOUT --> [*] : Saldo parcial creditado
+CANCELADA --> [*] : Saldo estornado
+@enduml

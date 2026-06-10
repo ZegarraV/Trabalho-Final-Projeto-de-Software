@@ -1,0 +1,28 @@
+@startuml
+node "Dispositivo do Cliente (Navegador/Mobile)" {
+  artifact "SPA React (JS/CSS/HTML)"
+}
+
+node "Infraestrutura Nuvem (AWS)" {
+  node "CDN / Load Balancer" {
+    component "AWS CloudFront & Nginx"
+  }
+  
+  node "Servidor de Aplicação" {
+    component "Docker Container (Node.js API)"
+  }
+  
+  node "Persistência" {
+    database "AWS RDS (PostgreSQL)"
+  }
+  
+  node "Cache em Memória" {
+    database "AWS ElastiCache (Redis)"
+  }
+}
+
+"SPA React (JS/CSS/HTML)" --> "AWS CloudFront & Nginx" : HTTPS
+"SPA React (JS/CSS/HTML)" --> "Docker Container (Node.js API)" : HTTPS / WebSocket
+"Docker Container (Node.js API)" --> "AWS RDS (PostgreSQL)" : TCP 5432
+"Docker Container (Node.js API)" --> "AWS ElastiCache (Redis)" : TCP 6379
+@enduml

@@ -1,0 +1,23 @@
+@startuml
+actor Apostador
+participant "Sistema AraBet" as sis
+participant "PayGateway" as pg
+
+Apostador -> sis: solicitarDeposito(valor, metodo)
+activate sis
+sis -> pg: gerarCobrancaExterna(valor, metodo)
+activate pg
+pg --> sis: token/URL de pagamento
+deactivate pg
+sis --> Apostador: exibir instrucoes de pagamento
+deactivate sis
+
+... Apostador realiza o pagamento no app do banco ...
+
+pg -> sis: Webhook: Pagamento Aprovado(token)
+activate sis
+sis -> sis: validarToken()
+sis -> sis: creditarCarteira(valor)
+sis --> Apostador: Notificação (Saldo Atualizado)
+deactivate sis
+@enduml

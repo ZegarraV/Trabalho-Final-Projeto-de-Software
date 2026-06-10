@@ -1,0 +1,84 @@
+@startuml
+entity "USUARIO" as user {
+  * id : UUID <<PK>>
+  --
+  nome : VARCHAR(100)
+  email : VARCHAR(150) <<UNIQUE>>
+  senha_hash : VARCHAR(255)
+  cpf : VARCHAR(14) <<UNIQUE>>
+  data_nascimento : DATE
+  kyc_verificado : BOOLEAN
+  criado_em : TIMESTAMP
+}
+
+entity "CARTEIRA" as wallet {
+  * id : UUID <<PK>>
+  --
+  usuario_id : UUID <<FK>>
+  saldo : DECIMAL(15,2)
+  moeda : VARCHAR(3)
+  atualizado_em : TIMESTAMP
+}
+
+entity "TRANSACAO" as transaction {
+  * id : UUID <<PK>>
+  --
+  carteira_id : UUID <<FK>>
+  tipo : VARCHAR(20)
+  valor : DECIMAL(15,2)
+  status : VARCHAR(20)
+  referencia_externa : VARCHAR(255)
+  criado_em : TIMESTAMP
+}
+
+entity "EVENTO" as event {
+  * id : UUID <<PK>>
+  --
+  nome : VARCHAR(200)
+  esporte : VARCHAR(50)
+  campeonato : VARCHAR(100)
+  data_hora_inicio : TIMESTAMP
+  status : VARCHAR(20)
+  placar_casa : INTEGER
+  placar_visitante : INTEGER
+}
+
+entity "MERCADO" as market {
+  * id : UUID <<PK>>
+  --
+  evento_id : UUID <<FK>>
+  nome : VARCHAR(100)
+  tipo : VARCHAR(50)
+  status : VARCHAR(20)
+}
+
+entity "SELECAO" as selection {
+  * id : UUID <<PK>>
+  --
+  mercado_id : UUID <<FK>>
+  nome : VARCHAR(100)
+  odd : DECIMAL(10,2)
+  resultado : VARCHAR(20)
+}
+
+entity "APOSTA" as bet {
+  * id : UUID <<PK>>
+  --
+  usuario_id : UUID <<FK>>
+  selecao_id : UUID <<FK>>
+  transacao_id : UUID <<FK>>
+  valor : DECIMAL(15,2)
+  odd_no_momento : DECIMAL(10,2)
+  ganhos_potenciais : DECIMAL(15,2)
+  status : VARCHAR(20)
+  criada_em : TIMESTAMP
+}
+
+user ||--|| wallet : possui
+wallet ||--o{ transaction : gera
+user ||--o{ bet : realiza
+event ||--o{ market : compoe
+market ||--o{ selection : pertence
+selection ||--o{ bet : referencia
+bet ||--|| transaction : origina
+@enduml

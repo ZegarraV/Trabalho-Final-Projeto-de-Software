@@ -1,0 +1,22 @@
+@startuml
+actor Apostador
+participant "Sistema AraBet" as sis
+
+Apostador -> sis: selecionarEvento(eventoId)
+activate sis
+sis --> Apostador: retornar Mercados e Odds
+deactivate sis
+
+Apostador -> sis: confirmarAposta(selecaoId, valorAposta)
+activate sis
+
+alt Saldo Suficiente
+    sis -> sis: criarBilhetePendente()
+    sis -> sis: debitarSaldo()
+    sis --> Apostador: Aposta Confirmada (status: PENDENTE)
+else Saldo Insuficiente
+    sis --> Apostador: Erro: Saldo Insuficiente
+end
+
+deactivate sis
+@enduml

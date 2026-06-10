@@ -1,0 +1,29 @@
+@startuml
+skinparam shadowing false
+skinparam nodesep 70
+skinparam ranksep 70
+
+object "apostador : Apostador" as user
+object "ctrl : PagamentoController" as ctrl
+object "svc : CarteiraService" as svc
+object "gw : PayGatewayAdapter" as gw
+object "carteira : Carteira" as cart
+object "tx : Transacao" as tx
+
+' Fluxos entre Apostador e Controller (Ida e Volta paralelas)
+user -right-> ctrl : 1: POST /depositos\n7: POST /depositos/confirmar
+ctrl -left-> user : 6: 200 OK {urlPagamento}\n14: 200 OK {saldo}
+
+' Fluxos entre Controller e Service (Ida e Volta paralelas)
+ctrl -down-> svc : 2: iniciarDeposito(...)\n8: confirmarDeposito(...)
+svc -up-> ctrl : 5: retornarUrl(...)\n13: retornarNovoSaldo(...)
+
+' Fluxos entre Service e Gateway (Ida e Volta paralelas)
+svc -left-> gw : 3: gerarLinkPagamento(...)\n9: validarPagamento(...)
+gw -right-> svc : 4: retornarLink(...)\n10: retornarStatus(pago=true)
+
+' Fluxos de saída única do Service
+svc -right-> cart : 11: creditar(valorConfirmado)
+svc -down-> tx : 12: new Transacao(DEPOSITO, valor)
+
+@enduml

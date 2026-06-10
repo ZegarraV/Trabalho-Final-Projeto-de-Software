@@ -1,0 +1,12 @@
+@startuml
+[*] --> AGENDADO : Evento criado pelo Operador
+
+AGENDADO --> AO_VIVO : Hora de início atingida
+AGENDADO --> CANCELADO : Cancelamento anterior ao início
+
+AO_VIVO --> ENCERRADO : Apito final / Resultado definido
+AO_VIVO --> CANCELADO : Interrupção definitiva (força maior)
+
+ENCERRADO --> [*] : Apostas liquidadas
+CANCELADO --> [*] : Apostas canceladas/reembolsadas
+@enduml
