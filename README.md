@@ -508,22 +508,6 @@ arabet/
 
 ---
 
-## 🎥 Demonstração
-
-### 🌐 Aplicação Web
-
-| Tela | Captura de Tela |
-| :---: | :---: |
-| **Página Inicial / Lobby de Eventos** | **Página de Login** |
-| <img src="./docs/screenshots/home.png" alt="Lobby de Eventos AraBet" width="380px"> | <img src="./docs/screenshots/login.png" alt="Tela de Login AraBet" width="380px"> |
-| **Realização de Aposta** | **Acompanhamento Ao Vivo + Cash Out** |
-| <img src="./docs/screenshots/betslip.png" alt="Bilhete de Aposta" width="380px"> | <img src="./docs/screenshots/live.png" alt="Apostas ao Vivo" width="380px"> |
-| **Carteira (Depósito via Pix)** | **Histórico de Apostas** |
-| <img src="./docs/screenshots/wallet.png" alt="Carteira AraBet" width="380px"> | <img src="./docs/screenshots/history.png" alt="Histórico de Apostas" width="380px"> |
-
-> [!WARNING]
-> Os screenshots acima serão adicionados ao repositório após a finalização da implementação. Hospedar as imagens no GitHub Pages garante carregamento rápido e estável.
-
 ### 💻 Exemplo de Saída no Terminal (API)
 
 #### 1. Realizando uma Aposta via cURL
@@ -613,9 +597,9 @@ npm run test:coverage
 
 ## 👥 Autores
 
-| 👤 Nome | 🖼️ Foto | :octocat: GitHub | 💼 LinkedIn | 📤 Gmail |
-|---------|----------|-----------------|-------------|-----------|
-| Vinícius Zegarra Palhares | <div align="center"><img src="https://joaopauloaramuni.github.io/image/aramunilogo.png" width="70px" height="70px"></div> | <div align="center"><a href="https://github.com/viniciuszegarra"><img src="https://joaopauloaramuni.github.io/image/github6.png" width="50px" height="50px"></a></div> | <div align="center"><a href="https://www.linkedin.com/in/viniciuszegarra"><img src="https://joaopauloaramuni.github.io/image/linkedin2.png" width="50px" height="50px"></a></div> | <div align="center"><a href="mailto:viniciuszegarra@gmail.com"><img src="https://joaopauloaramuni.github.io/image/gmail3.png" width="50px" height="50px"></a></div> |
+| 👤 Nome | :octocat: GitHub | 💼 LinkedIn | 📤 Gmail |
+|---------|-----------------|-------------|-----------|
+| Vinícius Zegarra Palhares | <div align="center"><a href="https://github.com/viniciuszegarra"><img src="https://joaopauloaramuni.github.io/image/github6.png" width="50px" height="50px"></a></div> | <div align="center"><a href="https://www.linkedin.com/in/viniciuszegarra"><img src="https://joaopauloaramuni.github.io/image/linkedin2.png" width="50px" height="50px"></a></div> | <div align="center"><a href="mailto:viniciuszegarra@gmail.com"><img src="https://joaopauloaramuni.github.io/image/gmail3.png" width="50px" height="50px"></a></div> |
 
 > [!TIP]
 > 💡 **Dica:** Substitua a foto de perfil padrão pela sua foto profissional. Preferencialmente uma imagem de rosto, com boa qualidade e sem filtros excessivos.
